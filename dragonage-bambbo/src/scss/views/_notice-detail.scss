@@ -1,0 +1,25 @@
+// 공지사항 상세 페이지 컨테이너
+.notice-detail-container {
+  margin: auto;
+  width: 60%;
+  height: auto;
+  min-width: 500px;
+  display: block;
+  border: 1px solid #927151;
+  background: #ffffff;
+  border-radius: 6px;
+  animation: fadeIn 1s ease-in-out;
+  padding: 20px;
+  // 공지사항 머리말 (제목, 작성일 등)
+  .notice-header {
+    // 공지사항 제목
+    .notice-title {
+    }
+    // 작성자, 작성일 등 메타 정보
+    .notice-meta {
+    }
+  }
+  // 공지사항 본문 내용
+  .notice-content {
+  }
+}

@@ -1,0 +1,74 @@
+@import "views/reset";
+// 여기에선 변수, 믹스인, 함수 등을 정의하거나 다른 파일을 가져올 수 있습니다.
+// 예: @import "variables";
+
+@import "views/app-layout";
+@import "views/dashboard-view";
+@import "views/notice-detail";
+@import "views/_notice-write";
+@import "views/_notice-list";
+@import "views/team-board";
+@import "views/_login-view";
+
+div {
+}
+body {
+  background: url("@/assets/images/테다스.jpg");
+  background-size: cover;
+  background-position: center;
+  color: #f0f8ff;
+}
+button {
+  display: inline-block;
+  padding: 10px 20px;
+  width: auto;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 6px;
+  background: #000000;
+  opacity: 0.4;
+  color: #f0f8ff;
+  transition: opacity 0.3s ease;
+}
+button:hover {
+  opacity: 1;
+}
+
+// 페이지 전환 페이드 애니메이션
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+// 공용 페이드인 애니메이션
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 1. 부모/조부모의 높이 고정 해제 */
+html,
+body,
+#app,
+#__nuxt {
+  height: auto !important; /* 고정 높이 제거 */
+  min-height: 100vh !important; /* 최소 높이는 유지 */
+  overflow-y: auto !important; /* 내용이 넘치면 스크롤바 생성 */
+}
+
+/* 2. 게시판 컨테이너도 스크롤 허용 */
+.bamboo-board-container {
+  height: auto !important; /* 내용만큼 늘어남 */
+  overflow-y: visible !important; /* 넘치는 것을 자르지 않음 */
+}

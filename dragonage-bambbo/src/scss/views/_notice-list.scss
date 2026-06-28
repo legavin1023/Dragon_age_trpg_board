@@ -1,0 +1,19 @@
+// Styles for NoticeList.vue
+.notice-list-container {
+  margin: auto;
+  width: 60%;
+  height: auto;
+  min-width: 500px;
+  display: block;
+  border: 1px solid #927151;
+  background: #ffffff;
+  border-radius: 6px;
+  animation: fadeIn 1s ease-in-out;
+  color: #000000;
+  padding: 20px;
+  .truncate {
+    white-space: nowrap;
+    overflow: overflow-y-auto;
+    text-overflow: ellipsis;
+  }
+}

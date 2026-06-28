@@ -1,0 +1,89 @@
+// 로그인 페이지 전체 컨테이너
+.login-view-container {
+  // 관리자 로그인 폼 영역
+  .admin-login-form {
+    // 이메일, 비밀번호 입력 필드 그룹
+    .form-group {
+      label {
+      }
+      input {
+      }
+    }
+  }
+
+  // 캐릭터 선택 영역
+  .login-box {
+    display: flex;
+    padding: 100px 50px;
+    animation: fadeIn 1s ease-in-out;
+    img {
+      width: 30%;
+      height: auto;
+      margin: auto;
+      border-radius: 8px;
+    }
+    button {
+      position: fixed;
+      right: 20px;
+      top: 20px;
+    }
+    .admin-login-button {
+    }
+  }
+
+  // 로딩 메시지
+  .loading {
+  }
+  // 에러 메시지
+  .error-message {
+  }
+
+  // 팀별 캐릭터 목록
+  .team-group-box {
+    width: 600px;
+    margin: auto;
+    animation: fadeIn 1.5s ease-in-out;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    .team-group {
+      display: flex;
+      flex-wrap: wrap;
+      position: relative;
+      width: 25%;
+      .team-toggle-button {
+        display: inline-block;
+        width: 94%;
+      }
+      .user-dropdown {
+        position: absolute;
+        width: 100%;
+        top: 100%;
+        left: 0;
+        z-index: 10;
+
+        .user-button {
+          width: 94%;
+          margin-top: 4px;
+          .small-text {
+            font-size: 80%;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 드롭다운 애니메이션
+.dropdown-enter-active,
+.dropdown-leave-active {
+  transition: all 0.3s ease;
+  overflow: overflow-y-auto;
+}
+
+.dropdown-enter-from,
+.dropdown-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}

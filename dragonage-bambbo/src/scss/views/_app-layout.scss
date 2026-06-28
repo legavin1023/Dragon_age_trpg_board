@@ -1,0 +1,86 @@
+// 전체 앱 레이아웃 컨테이너
+.app-layout {
+  width: 100%;
+
+  .logo {
+    width: 200px;
+    height: auto;
+    margin: 10px auto;
+    display: block;
+    animation: fadeIn 1s ease-in-out;
+  }
+
+  .top-nav-bar {
+    width: 60%;
+    min-width: 500px;
+    margin: auto;
+    background: #000000;
+    border-radius: 6px;
+    animation: fadeIn 1.5s ease-in-out;
+    margin-bottom: 6px;
+
+    .team-tabs {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+
+      .team-box {
+        text-align: center;
+        padding: 10px;
+        width: 19%;
+        opacity: 0.6;
+        transition: opacity 0.3s;
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+
+      .team-tab-link {
+        &.active {
+          opacity: 1;
+        }
+
+        &.my-team {
+          background-color: #510000;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .user-actions {
+    width: 60%;
+    margin: 0 auto 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    position: relative;
+    top: -10px;
+
+    .profile-image {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #927151;
+    }
+
+    .username {
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
+
+  .main-content {
+    //
+  }
+
+  .logout-button {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    z-index: 100;
+  }
+}
