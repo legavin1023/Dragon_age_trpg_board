@@ -13,9 +13,12 @@
 div {
 }
 body {
-  background: url("@/assets/images/테다스.jpg");
+  background: url("@/assets/images/테다스.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  background-position: center;
+  min-height: 100%;
   color: #f0f8ff;
 }
 button {
@@ -57,14 +60,8 @@ button:hover {
   }
 }
 
-/* 1. 부모/조부모의 높이 고정 해제 */
-html,
-body,
-#app,
-#__nuxt {
-  height: auto !important; /* 고정 높이 제거 */
-  min-height: 100vh !important; /* 최소 높이는 유지 */
-  overflow-y: auto !important; /* 내용이 넘치면 스크롤바 생성 */
+html {
+  height: 100%;
 }
 
 /* 2. 게시판 컨테이너도 스크롤 허용 */

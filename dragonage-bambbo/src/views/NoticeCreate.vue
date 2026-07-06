@@ -1,48 +1,20 @@
 <template>
-  <div class="notice-create-container max-w-2xl mx-auto p-4 sm:p-6 lg:p-8">
-    <h1 class="text-2xl font-bold text-gray-800 mb-6">새 공지 작성</h1>
-    <form
-      @submit.prevent="handleSubmit"
-      class="space-y-6 bg-white p-8 rounded-lg shadow"
-    >
+  <div class="notice-create-container">
+    <h1>새 공지 작성</h1>
+    <form @submit.prevent="handleSubmit">
       <div>
-        <label for="title" class="block text-sm font-medium text-gray-700"
-          >제목</label
-        >
-        <input
-          type="text"
-          id="title"
-          v-model="title"
-          required
-          class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-        />
+        <label for="title">제목</label>
+        <input type="text" id="title" v-model="title" required />
       </div>
       <div>
-        <label for="content" class="block text-sm font-medium text-gray-700"
-          >내용</label
-        >
-        <textarea
-          id="content"
-          v-model="content"
-          required
-          rows="10"
-          class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-        ></textarea>
+        <label for="content">내용</label>
+        <textarea id="content" v-model="content" required rows="10"></textarea>
       </div>
-      <div class="flex justify-end space-x-4">
+      <div>
         <router-link :to="{ name: 'NoticeList' }">
-          <button
-            type="button"
-            class="px-4 py-2 bg-gray-200 text-gray-800 font-semibold rounded-md hover:bg-gray-300"
-          >
-            취소
-          </button>
+          <button type="button">취소</button>
         </router-link>
-        <button
-          type="submit"
-          :disabled="isSubmitting"
-          class="px-4 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 disabled:bg-gray-400"
-        >
+        <button type="submit" :disabled="isSubmitting">
           {{ isSubmitting ? "등록 중..." : "등록하기" }}
         </button>
       </div>

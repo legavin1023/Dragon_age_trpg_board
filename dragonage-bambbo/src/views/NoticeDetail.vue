@@ -1,23 +1,17 @@
 <template>
-  <div class="notice-detail-container max-w-3xl mx-auto p-4 sm:p-6 lg:p-8">
-    <div v-if="loading" class="text-center text-gray-500">
+  <div class="notice-detail-container">
+    <div v-if="loading">
       <p>공지사항을 불러오는 중...</p>
     </div>
-    <div v-else-if="error" class="text-center text-red-500">
+    <div v-else-if="error">
       <p>오류가 발생했습니다: {{ error.message }}</p>
     </div>
-    <div v-else-if="notice" class="bg-white p-8 rounded-lg shadow">
-      <div class="border-b pb-4 mb-6">
-        <h1 class="text-3xl font-bold text-gray-900">{{ notice.title }}</h1>
-        <div
-          class="flex justify-between items-center mt-3 text-sm text-gray-500"
-        >
-          <div class="flex items-center gap-2">
-            <img
-              :src="getProfileImage(notice.author_name)"
-              alt="Profile"
-              class="w-8 h-8 rounded-full object-cover"
-            />
+    <div v-else-if="notice">
+      <div>
+        <h1>{{ notice.title }}</h1>
+        <div>
+          <div>
+            <img :src="getProfileImage(notice.author_name)" alt="Profile" />
             <span
               >작성자:
               {{ formatTitle(notice.author_name) || "알 수 없음" }}</span
@@ -27,23 +21,14 @@
         </div>
       </div>
 
-      <div class="prose max-w-none" v-html="formattedContent"></div>
+      <div v-html="formattedContent"></div>
 
-      <div v-if="isAdmin" class="mt-8 pt-6 border-t flex justify-end space-x-4">
-        <button
-          @click="handleDelete"
-          class="px-4 py-2 bg-red-600 text-white font-semibold rounded-md hover:bg-red-700"
-        >
-          삭제
-        </button>
+      <div v-if="isAdmin">
+        <button @click="handleDelete">삭제</button>
       </div>
-      <div class="mt-8 pt-6 border-t flex justify-end">
+      <div>
         <router-link :to="{ name: 'NoticeList' }">
-          <button
-            class="px-4 py-2 bg-gray-200 text-gray-800 font-semibold rounded-md hover:bg-gray-300"
-          >
-            목록으로
-          </button>
+          <button>목록으로</button>
         </router-link>
       </div>
     </div>
