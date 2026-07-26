@@ -118,22 +118,24 @@
     justify-content: space-around;
     .team-group {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column; /* 변경: 세로 정렬 */
+      align-items: center;   /* 변경: 중앙 정렬 */
       position: relative;
       width: 20%;
       .team-toggle-button {
-        display: inline-block;
-        width: 94%;
+        display: block; /* 변경: 블록 요소로 */
+        width: 100%;    /* 변경: 100% 너비 */
+        margin: auto;   /* 변경: 중앙 정렬 */
       }
       .user-dropdown {
         position: absolute;
-        width: 100%;
+        width: 100%;    /* 변경: 100% 너비 */
         top: 100%;
         left: 0;
         z-index: 10;
 
         .user-button {
-          width: 94%;
+          width: 100%;    /* 변경: 100% 너비 */
           margin-top: 4px;
           .small-text {
             font-size: 80%;
@@ -155,4 +157,66 @@
 .dropdown-leave-to {
   opacity: 0;
   transform: translateY(-10px);
+}
+
+// Mobile responsiveness
+@media (max-width: 768px) {
+  .login-view-container {
+    .admin-login-form {
+      margin: 0;
+      padding: 20px;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .login-box {
+      padding: 50px 20px;
+
+      img {
+        width: 50%;
+      }
+
+      button {
+        position: static;
+        margin-top: 20px;
+        width: 100%;
+      }
+    }
+
+    .team-group-box {
+      width: 100%;
+      margin: 0; /* Add this to ensure no side margins on mobile */
+      flex-direction: column;
+
+      .team-group {
+        width: 100%;
+        margin-bottom: 10px;
+
+        .team-toggle-button,
+        .user-button {
+          font-size: 14px;
+          padding: 10px;
+          text-align: center; /* 추가: 텍스트 중앙 정렬 */
+        }
+
+        .user-dropdown {
+          position: static;
+          width: 100%;
+          padding: 10px 0 0;
+          background-color: #2c2c2c; /* 배경색 추가 */
+          border-radius: 0 0 8px 8px; /* 아래쪽 모서리 둥글게 */
+
+          .user-button {
+            width: 100%;
+            margin-top: 0;
+            border-top: 1px solid #444; /* 구분선 추가 */
+            border-radius: 0;
+            .small-text {
+              font-size: 80%; /* 폰트 크기 조정 */
+            }
+          }
+        }
+      }
+    }
+  }
 }

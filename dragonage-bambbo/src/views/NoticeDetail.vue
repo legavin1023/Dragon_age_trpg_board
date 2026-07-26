@@ -7,29 +7,35 @@
       <p>오류가 발생했습니다: {{ error.message }}</p>
     </div>
     <div v-else-if="notice">
-      <div>
-        <h1>{{ notice.title }}</h1>
-        <div>
-          <div>
-            <img :src="getProfileImage(notice.author_name)" alt="Profile" />
+      <div class="notice-header">
+        <h1 class="notice-title">{{ notice.title }}</h1>
+        <div class="notice-meta">
+          <div class="notice-author">
+            <img
+              :src="getProfileImage(notice.author_name)"
+              alt="Profile"
+              class="profile-img"
+            />
             <span
               >작성자:
               {{ formatTitle(notice.author_name) || "알 수 없음" }}</span
             >
           </div>
-          <span>{{ new Date(notice.created_at).toLocaleString() }}</span>
+          <span class="notice-date">{{
+            new Date(notice.created_at).toLocaleString()
+          }}</span>
         </div>
       </div>
 
-      <div v-html="formattedContent"></div>
+      <div class="notice-content" v-html="formattedContent"></div>
 
-      <div v-if="isAdmin">
-        <button @click="handleDelete">삭제</button>
-      </div>
-      <div>
+      <div class="actions">
         <router-link :to="{ name: 'NoticeList' }">
           <button>목록으로</button>
         </router-link>
+        <button v-if="isAdmin" @click="handleDelete" class="btn-delete">
+          삭제
+        </button>
       </div>
     </div>
     <div v-else class="text-center text-gray-500 py-10">

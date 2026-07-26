@@ -17,3 +17,16 @@
     text-overflow: ellipsis;
   }
 }
+
+// Mobile responsiveness
+@media (max-width: 768px) {
+  .notice-list-container {
+    width: 100%;
+    min-width: unset;
+    margin: 0;
+    padding: 15px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}

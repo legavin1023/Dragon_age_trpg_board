@@ -256,15 +256,18 @@ const fetchUsersForTeam = async (teamId) => {
 };
 
 const toggleTeam = async (teamId) => {
-  if (openTeams.value.has(teamId)) {
-    openTeams.value.delete(teamId);
-  } else {
+  const wasOpen = openTeams.value.has(teamId);
+  openTeams.value.clear(); // 모든 드롭다운을 닫습니다.
+
+  if (!wasOpen) {
+    // 클릭된 드롭다운이 닫혀 있었다면, 새로 엽니다.
     openTeams.value.add(teamId);
     const team = teams.value.find((t) => t.id === teamId);
     if (team && team.users.length === 0) {
       await fetchUsersForTeam(teamId);
     }
   }
+  // 만약 이미 열려 있었다면, clear()에 의해 닫히기만 하고 다시 열리지 않습니다.
 };
 
 onMounted(() => {

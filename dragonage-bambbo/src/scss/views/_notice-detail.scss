@@ -1,25 +1,119 @@
 // 공지사항 상세 페이지 컨테이너
 .notice-detail-container {
-  margin: auto;
+  margin: 50px auto;
   width: 60%;
-  height: auto;
+  max-width: 900px;
   min-width: 500px;
-  display: block;
-  border: 1px solid #927151;
-  background: #ffffff;
-  border-radius: 6px;
+  background: #fdfdfd;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 40px;
   animation: fadeIn 1s ease-in-out;
-  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
   // 공지사항 머리말 (제목, 작성일 등)
   .notice-header {
-    // 공지사항 제목
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+
     .notice-title {
+      font-size: 28px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 20px;
     }
-    // 작성자, 작성일 등 메타 정보
+
     .notice-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      color: #666;
+
+      .notice-author {
+        display: flex;
+        align-items: center;
+
+        .profile-img {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          margin-right: 10px;
+          object-fit: cover;
+        }
+      }
     }
   }
+
   // 공지사항 본문 내용
   .notice-content {
+    padding: 20px 0;
+    line-height: 1.8;
+    color: #444;
+    min-height: 200px;
+  }
+
+  // 액션 버튼 영역
+  .actions {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    text-align: right;
+
+    button {
+      margin-left: 10px;
+    }
+
+    .btn-delete {
+      background-color: #d9534f;
+      color: white;
+
+      &:hover {
+        background-color: #c9302c;
+      }
+    }
+  }
+}
+
+// 모바일 반응형
+@media (max-width: 768px) {
+  .notice-detail-container {
+    width: 100%;
+    min-width: unset;
+    margin: 0;
+    padding: 20px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+
+    .notice-header {
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+
+      .notice-title {
+        font-size: 22px;
+      }
+
+      .notice-meta {
+        flex-direction: column;
+        align-items: flex-start;
+
+        .notice-date {
+          margin-top: 10px;
+          font-size: 13px;
+        }
+      }
+    }
+
+    .notice-content {
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .actions {
+      margin-top: 30px;
+      padding-top: 15px;
+    }
   }
 }
