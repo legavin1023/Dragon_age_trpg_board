@@ -2,11 +2,80 @@
 .login-view-container {
   // 관리자 로그인 폼 영역
   .admin-login-form {
-    // 이메일, 비밀번호 입력 필드 그룹
+    width: 100%;
+    max-width: 400px;
+    margin: 150px auto;
+    padding: 40px;
+    border-radius: 12px;
+    background-color: #2c2c2c;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+
+    h1 {
+      margin-bottom: 30px;
+      color: #fff;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
     .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+
       label {
+        display: block;
+        margin-bottom: 8px;
+        color: #a0a0a0;
+        font-size: 14px;
       }
+
       input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #444;
+        border-radius: 8px;
+        background-color: #333;
+        color: #fff;
+        font-size: 16px;
+        box-sizing: border-box; /* 추가 */
+
+        &:focus {
+          outline: none;
+          border-color: #c89b3c;
+          box-shadow: 0 0 0 3px rgba(200, 155, 60, 0.2);
+        }
+      }
+    }
+
+    .btn-login {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      background-color: #c89b3c;
+      color: #111;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #dfb45f;
+      }
+    }
+
+    .btn-back {
+      margin-top: 20px;
+      background: none;
+      border: none;
+      color: #a0a0a0;
+      cursor: pointer;
+      text-decoration: underline;
+
+      &:hover {
+        color: #fff;
       }
     }
   }
@@ -40,7 +109,7 @@
 
   // 팀별 캐릭터 목록
   .team-group-box {
-    width: 600px;
+    width: 800px;
     margin: auto;
     animation: fadeIn 1.5s ease-in-out;
     display: flex;
@@ -51,7 +120,7 @@
       display: flex;
       flex-wrap: wrap;
       position: relative;
-      width: 25%;
+      width: 20%;
       .team-toggle-button {
         display: inline-block;
         width: 94%;

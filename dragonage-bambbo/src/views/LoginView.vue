@@ -1,20 +1,20 @@
 <template>
   <div class="login-view-container">
     <div>
-      <div v-if="showAdminLogin">
+      <div v-if="showAdminLogin" class="admin-login-form">
         <h1>관리자 로그인</h1>
-        <form @submit.prevent="handleAdminLogin">
-          <div>
+        <form @submit.prevent="handleAdminLogin" class="login-form">
+          <div class="form-group">
             <label for="email">이메일</label>
             <input type="email" id="email" v-model="email" required />
           </div>
-          <div>
+          <div class="form-group">
             <label for="password">비밀번호</label>
             <input type="password" id="password" v-model="password" required />
           </div>
-          <button type="submit">로그인</button>
+          <button type="submit" class="btn-login">로그인</button>
         </form>
-        <button @click="showAdminLogin = false">
+        <button @click="showAdminLogin = false" class="btn-back">
           캐릭터 선택으로 돌아가기
         </button>
       </div>
