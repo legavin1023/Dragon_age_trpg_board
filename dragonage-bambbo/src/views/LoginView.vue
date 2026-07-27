@@ -190,7 +190,7 @@ const verifyOrSetUserPin = async () => {
   }
 
   if (isSettingNewPin.value) {
-    // 1. 최초 설정인 경우: 데이터베이스 함수(RPC)를 호출하여 암호화 저장
+    // 1. 최초 설정인 경우: 암호화 저장 함수 호출
     const { error: updateError } = await supabase.rpc("update_user_pin", {
       target_user_id: pendingUser.value.id,
       raw_pin: enteredPin.value,
@@ -204,11 +204,25 @@ const verifyOrSetUserPin = async () => {
     alert("비밀번호가 성공적으로 설정되었습니다!");
     proceedLogin();
   } else {
-    // 2. 이미 비밀번호가 있는 경우 로그인 검증
-    // (로그인 검증 시에도 DB에서 암호화된 값과 비교하는 로직이 필요합니다)
-    if (enteredPin.value === pendingUser.value.pin) {
+    // 2. 이미 비밀번호가 있는 경우: DB 함수를 통해 안전하게 검증
+    const { data: isValid, error: verifyError } = await supabase.rpc(
+      "verify_user_pin",
+      {
+        target_user_id: pendingUser.value.id,
+        raw_pin: enteredPin.value,
+      }
+    );
+
+    if (verifyError) {
+      alert("비밀번호 확인 중 에러 발생: " + verifyError.message);
+      return;
+    }
+
+    if (isValid) {
+      // 검증 성공!
       proceedLogin();
     } else {
+      // 검증 실패!
       alert("비밀번호가 틀렸습니다!");
       enteredPin.value = "";
     }

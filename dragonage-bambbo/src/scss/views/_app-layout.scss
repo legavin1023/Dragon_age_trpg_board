@@ -84,3 +84,18 @@
     z-index: 100;
   }
 }
+
+// Mobile responsiveness
+@media (max-width: 768px) {
+  .app-layout {
+    .top-nav-bar {
+      width: 100%;
+      min-width: unset;
+      border-radius: 0;
+    }
+
+    .user-actions {
+      width: 100%;
+    }
+  }
+}

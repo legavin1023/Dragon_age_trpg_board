@@ -202,3 +202,16 @@
     padding: 20px;
   }
 }
+
+// Mobile responsiveness
+@media (max-width: 768px) {
+  .bamboo-board-container {
+    width: 100%;
+    min-width: unset;
+    margin: 0;
+    padding: 15px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
